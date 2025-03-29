@@ -33,7 +33,6 @@ public class App implements Callable<Integer> {
             System.out.println(Differ.generate(filepath1, filepath2));
         } catch (IOException e) {
             System.out.println(e.getMessage());
-            ;
         }
         return 0;
     }

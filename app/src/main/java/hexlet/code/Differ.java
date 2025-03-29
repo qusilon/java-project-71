@@ -24,7 +24,9 @@ public class Differ {
         });
     }
 
-    private static String stringGenerator(Map<String, Object> data1, Map<String, Object> data2, Map<String, String> dataKeys) {
+    private static String stringGenerator(Map<String, Object> data1,
+                                          Map<String, Object> data2,
+                                          Map<String, String> dataKeys) {
         StringBuilder result = new StringBuilder("{\n");
         dataKeys.forEach((key, value) -> {
             switch (value) {
@@ -41,6 +43,8 @@ public class Differ {
                     result.append("  - ").append(key).append(": ").append(data1.get(key)).append("\n").
                         append("  + ").append(key).append(": ").append(data2.get(key)).append("\n");
                     break;
+                default:
+                    System.out.println("Error");
             }
         });
         result.append("}");
