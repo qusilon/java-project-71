@@ -10,12 +10,24 @@ import java.nio.file.Paths;
 public class DifferTest {
 
     @Test
-    void testDifferStylish() throws IOException {
+    void testDifferJsonStylish() throws IOException {
         Path expectedPath = Paths.get("./src/test/resources/expected_stylish.txt");
-        String json1Path = "./src/test/resources/file1.json";
-        String json2Path = "./src/test/resources/file2.json";
+        String file1Path = Paths.get("./src/test/resources/file1.json").toAbsolutePath().normalize().toString();
+        String file2Path = Paths.get("./src/test/resources/file2.json").toAbsolutePath().normalize().toString();
 
-        String actual = Differ.generate(json1Path, json2Path);
+        String actual = Differ.generate(file1Path, file2Path);
+        String expected = Files.readString(expectedPath);
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void testDifferYamlStylish() throws IOException {
+        Path expectedPath = Paths.get("./src/test/resources/expected_stylish.txt");
+        String file1Path = Paths.get("./src/test/resources/file1.yaml").toAbsolutePath().normalize().toString();
+        String file2Path = Paths.get("./src/test/resources/file2.yaml").toAbsolutePath().normalize().toString();
+
+        String actual = Differ.generate(file1Path, file2Path);
         String expected = Files.readString(expectedPath);
 
         assertEquals(expected, actual);
