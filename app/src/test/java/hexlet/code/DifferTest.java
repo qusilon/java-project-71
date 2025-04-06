@@ -32,4 +32,17 @@ public class DifferTest {
 
         assertEquals(expected, actual);
     }
+
+    @Test
+    void testDifferYamlPlain() throws Exception {
+        String expectedPath = "/home/qusilon/java-project-71/app/src/test/resources/expected_plain.txt";
+        String file1Path = "/home/qusilon/java-project-71/app/src/test/resources/file1.yaml";
+        String file2Path = "/home/qusilon/java-project-71/app/src/test/resources/file2.yaml";
+        String format = "plain";
+
+        String actual = Differ.generate(file1Path, file2Path, format);
+        String expected = Files.readString(Paths.get(expectedPath));
+
+        assertEquals(expected, actual);
+    }
 }

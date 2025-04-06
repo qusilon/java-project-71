@@ -6,6 +6,7 @@ import java.util.Map;
 public class Stylish {
 
     public static String getStylishFormat(List<Map<String, Object>> diffData) {
+
         StringBuilder result = new StringBuilder("{\n");
         diffData.forEach((currentMap) -> {
             String status = String.valueOf(currentMap.get("status"));
@@ -16,7 +17,7 @@ public class Stylish {
                     value = currentMap.get("value");
                     result.append(String.format("    %s: %s\n", key, value));
                     break;
-                case "deleted":
+                case "removed":
                     value = currentMap.get("value");
                     result.append(String.format("  - %s: %s\n", key, value));
                     break;
@@ -24,7 +25,7 @@ public class Stylish {
                     value = currentMap.get("value");
                     result.append(String.format("  + %s: %s\n", key, value));
                     break;
-                case "changed":
+                case "updated":
                     Object value1 = currentMap.get("value1");
                     Object value2 = currentMap.get("value2");
                     result.append(String.format("  - %s: %s\n", key, value1));

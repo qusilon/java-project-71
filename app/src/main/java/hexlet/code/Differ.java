@@ -55,14 +55,14 @@ public class Differ {
                     currentMap.put("key", key);
                     currentMap.put("value1", data1.get(key));
                     currentMap.put("value2", data2.get(key));
-                    currentMap.put("status", "changed");
+                    currentMap.put("status", "updated");
                     diffData.add(currentMap);
                 }
             } else if (data1.containsKey(key) && !data2.containsKey(key)) {
                 Map<String, Object> currentMap = new HashMap<>();
                 currentMap.put("key", key);
                 currentMap.put("value", data1.get(key));
-                currentMap.put("status", "deleted");
+                currentMap.put("status", "removed");
                 diffData.add(currentMap);
             } else {
                 Map<String, Object> currentMap = new HashMap<>();

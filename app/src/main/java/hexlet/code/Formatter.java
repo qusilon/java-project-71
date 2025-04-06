@@ -1,5 +1,6 @@
 package hexlet.code;
 
+import hexlet.code.formatters.Plain;
 import hexlet.code.formatters.Stylish;
 
 import java.util.List;
@@ -12,7 +13,7 @@ public class Formatter {
             case "stylish":
                 return Stylish.getStylishFormat(diffData);
             case "plain":
-                return "";
+                return Plain.getPlainFormat(diffData);
             default:
                 throw new Exception();
         }
