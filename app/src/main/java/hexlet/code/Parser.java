@@ -4,14 +4,13 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Map;
 
 public class Parser {
 
-    public static Map<String, Object> parse(Path path, String format) throws IOException {
+    public static Map<String, Object> parse(Path path, String format) throws Exception {
         byte[] content = Files.readAllBytes(path);
         switch (format) {
             case "json":
@@ -24,7 +23,7 @@ public class Parser {
                 });
             default:
                 System.out.println("Error");
-                throw new IOException();
+                throw new Exception();
         }
 
     }
