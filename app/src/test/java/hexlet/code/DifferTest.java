@@ -9,9 +9,9 @@ public class DifferTest {
 
     @Test
     void testDifferJsonStylish() throws Exception {
-        String expectedPath = "/home/qusilon/java-project-71/app/src/test/resources/expected_stylish.txt";
-        String file1Path = "/home/qusilon/java-project-71/app/src/test/resources/file1.json";
-        String file2Path = "/home/qusilon/java-project-71/app/src/test/resources/file2.json";
+        String expectedPath = "./src/test/resources/expected_stylish.txt";
+        String file1Path = "./src/test/resources/file1.json";
+        String file2Path = "./src/test/resources/file2.json";
         String format = "stylish";
 
         String actual = Differ.generate(file1Path, file2Path, format);
@@ -22,9 +22,9 @@ public class DifferTest {
 
     @Test
     void testDifferYamlStylish() throws Exception {
-        String expectedPath = "/home/qusilon/java-project-71/app/src/test/resources/expected_stylish.txt";
-        String file1Path = "/home/qusilon/java-project-71/app/src/test/resources/file1.yaml";
-        String file2Path = "/home/qusilon/java-project-71/app/src/test/resources/file2.yaml";
+        String expectedPath = "./src/test/resources/expected_stylish.txt";
+        String file1Path = "./src/test/resources/file1.yaml";
+        String file2Path = "./src/test/resources/file2.yaml";
         String format = "stylish";
 
         String actual = Differ.generate(file1Path, file2Path, format);
@@ -35,9 +35,9 @@ public class DifferTest {
 
     @Test
     void testDifferYamlPlain() throws Exception {
-        String expectedPath = "/home/qusilon/java-project-71/app/src/test/resources/expected_plain.txt";
-        String file1Path = "/home/qusilon/java-project-71/app/src/test/resources/file1.yaml";
-        String file2Path = "/home/qusilon/java-project-71/app/src/test/resources/file2.yaml";
+        String expectedPath = "./src/test/resources/expected_plain.txt";
+        String file1Path = "./src/test/resources/file1.yaml";
+        String file2Path = "./src/test/resources/file2.yaml";
         String format = "plain";
 
         String actual = Differ.generate(file1Path, file2Path, format);
