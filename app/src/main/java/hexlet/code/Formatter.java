@@ -1,5 +1,6 @@
 package hexlet.code;
 
+import hexlet.code.formatters.Json;
 import hexlet.code.formatters.Plain;
 import hexlet.code.formatters.Stylish;
 
@@ -14,6 +15,8 @@ public class Formatter {
                 return Stylish.getStylishFormat(diffData);
             case "plain":
                 return Plain.getPlainFormat(diffData);
+            case "json":
+                return Json.getJsonFormat(diffData);
             default:
                 throw new Exception();
         }

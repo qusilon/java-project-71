@@ -45,4 +45,17 @@ public class DifferTest {
 
         assertEquals(expected, actual);
     }
+
+    @Test
+    void testDifferYamlJson() throws Exception {
+        String expectedPath = "./src/test/resources/expected_json.txt";
+        String file1Path = "./src/test/resources/file1.yaml";
+        String file2Path = "./src/test/resources/file2.yaml";
+        String format = "json";
+
+        String actual = Differ.generate(file1Path, file2Path, format);
+        String expected = Files.readString(Paths.get(expectedPath));
+
+        assertEquals(expected, actual);
+    }
 }
