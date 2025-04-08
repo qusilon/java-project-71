@@ -17,4 +17,4 @@ clean:
 	./gradlew clean
 
 setup:
-	./gradlew wrapper --gradle-version 8.5
+	./gradlew wrapper --gradle-version 8.10
