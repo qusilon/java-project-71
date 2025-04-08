@@ -16,7 +16,7 @@ jobs:
       - name: Execute Gradle build
         run: |
           cd app/
-          ./gradlew build
+          make build
       - name: Generate coverage report
         run: |
           cd app/
