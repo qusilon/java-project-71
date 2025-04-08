@@ -31,7 +31,7 @@ public class Plain {
                     System.out.println("Error");
             }
         });
-        return result.toString();
+        return result.toString().trim();
     }
 
     private static Object getPlainObject(Object value) {
