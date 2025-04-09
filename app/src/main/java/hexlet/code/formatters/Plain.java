@@ -1,5 +1,7 @@
 package hexlet.code.formatters;
 
+import hexlet.code.Changes;
+
 import java.util.List;
 import java.util.Map;
 
@@ -9,23 +11,23 @@ public class Plain {
 
         StringBuilder result = new StringBuilder();
         diffData.forEach((currentMap) -> {
-            String status = String.valueOf(currentMap.get("status"));
+            Changes status = (Changes) currentMap.get("status");
             String key = String.valueOf(currentMap.get("key"));
             Object value;
             switch (status) {
-                case "unchanged":
+                case UNCHANGED:
                     break;
-                case "removed":
-                    result.append(String.format("Property '%s' was %s\n", key, status));
+                case REMOVED:
+                    result.append(String.format("Property '%s' was removed\n", key));
                     break;
-                case "added":
+                case ADDED:
                     value = getPlainObject(currentMap.get("value"));
-                    result.append(String.format("Property '%s' was %s with value: %s\n", key, status, value));
+                    result.append(String.format("Property '%s' was added with value: %s\n", key, value));
                     break;
-                case "updated":
+                case UPDATED:
                     Object value1 = getPlainObject(currentMap.get("value1"));
                     Object value2 = getPlainObject(currentMap.get("value2"));
-                    result.append(String.format("Property '%s' was %s. From %s to %s\n", key, status, value1, value2));
+                    result.append(String.format("Property '%s' was updated. From %s to %s\n", key, value1, value2));
                     break;
                 default:
                     System.out.println("Error");

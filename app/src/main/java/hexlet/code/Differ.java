@@ -47,34 +47,25 @@ public class Differ {
         List<Map<String, Object>> diffData = new ArrayList<>();
 
         sortedKeys.forEach(key -> {
+            Map<String, Object> currentMap = new HashMap<>();
+            currentMap.put("key", key);
             if (data1.containsKey(key) && data2.containsKey(key)) {
                 if (Objects.equals(data1.get(key), data2.get(key))) {
-                    Map<String, Object> currentMap = new HashMap<>();
-                    currentMap.put("key", key);
                     currentMap.put("value", data1.get(key));
-                    currentMap.put("status", "unchanged");
-                    diffData.add(currentMap);
+                    currentMap.put("status", Changes.UNCHANGED);
                 } else {
-                    Map<String, Object> currentMap = new HashMap<>();
-                    currentMap.put("key", key);
                     currentMap.put("value1", data1.get(key));
                     currentMap.put("value2", data2.get(key));
-                    currentMap.put("status", "updated");
-                    diffData.add(currentMap);
+                    currentMap.put("status", Changes.UPDATED);
                 }
             } else if (data1.containsKey(key) && !data2.containsKey(key)) {
-                Map<String, Object> currentMap = new HashMap<>();
-                currentMap.put("key", key);
                 currentMap.put("value", data1.get(key));
-                currentMap.put("status", "removed");
-                diffData.add(currentMap);
+                currentMap.put("status", Changes.REMOVED);
             } else {
-                Map<String, Object> currentMap = new HashMap<>();
-                currentMap.put("key", key);
                 currentMap.put("value", data2.get(key));
-                currentMap.put("status", "added");
-                diffData.add(currentMap);
+                currentMap.put("status", Changes.ADDED);
             }
+            diffData.add(currentMap);
         });
         return diffData;
     }
